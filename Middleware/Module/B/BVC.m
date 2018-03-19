@@ -33,25 +33,16 @@
 }
 
 
-#pragma mark - action
-
-- (IBAction)actionButton:(UIButton *)sender {
-    [[Middleware shareMiddleware] performTarget:NSClassFromString(@"APortal") action:NSSelectorFromString(@"actionAWithText:confirmBlock:") params:@[@"B调用A"]];
-}
-
-
 #pragma mark - service
 
-- (void)actionB {
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:nil
-                                                                message:@"模块B被调用"
+- (void)actionBWithParam1:(NSString *)string1 param2:(NSString *)string2 param3:(id)object param4:(void (^)(NSString *))block {
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:string1
+                                                                message:string2
                                                          preferredStyle:UIAlertControllerStyleAlert];
-    [ac addAction:[UIAlertAction actionWithTitle:@"666" style:UIAlertActionStyleDefault handler:nil]];
+    [ac addAction:[UIAlertAction actionWithTitle:@"666" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        block(action.title);
+    }]];
     [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:ac animated:YES completion:nil];
-}
-
-- (NSString *)actionBWithReturn {
-    return @"这是组件B";
 }
 
 @end

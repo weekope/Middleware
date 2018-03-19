@@ -64,7 +64,7 @@
     free(methods);
 }
 
-- (id)performTarget:(Class)target action:(SEL)sel params:(NSArray *)params {
+- (id)performTarget:(Class)target action:(SEL)sel params:(id)first, ... {
     //通过自身维护的注册信息，判定组件是否可被交互
     if ([self.dicTarget.allKeys containsObject:NSStringFromClass(target)]) {
         NSObject *object = [[target alloc] init];
@@ -77,10 +77,25 @@
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
         invocation.target = object;
         invocation.selector = sel;
-        for (NSInteger i=0; i<params.count; i++) {
-            id param = params[i];
-            [invocation setArgument:&param atIndex:2+i];
+        
+        if (first) {
+            NSInteger index = 2;
+            if (first != MiddleWareArgNoValue) {
+                [invocation setArgument:&first atIndex:index];
+            }
+            
+            va_list args;
+            va_start(args, first);
+            id arg;
+            while ((arg = va_arg(args, id))) {
+                index++;
+                if (arg != MiddleWareArgNoValue) {
+                    [invocation setArgument:&arg atIndex:index];
+                }
+            }
+            va_end(args);
         }
+        
         [invocation invoke];
         
         return [self getReturnValue:invocation];

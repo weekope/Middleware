@@ -36,33 +36,12 @@
 #pragma mark - action
 
 - (IBAction)actionButton:(UIButton *)sender {
-    [[Middleware shareMiddleware] performTarget:NSClassFromString(@"BPortal") action:NSSelectorFromString(@"actionB") params:nil];
-}
-
-- (IBAction)actionButton1:(UIButton *)sender {
-    NSString *string = [[Middleware shareMiddleware] performTarget:NSClassFromString(@"BPortal") action:NSSelectorFromString(@"actionBWithReturn") params:nil];
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"这是组件B参数"
-                                                                message:string
-                                                         preferredStyle:UIAlertControllerStyleAlert];
-    [ac addAction:[UIAlertAction actionWithTitle:@"666" style:UIAlertActionStyleDefault handler:nil]];
-    [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:ac animated:YES completion:nil];
-}
-
-
-#pragma mark - service
-
-- (void)actionAWithText:(NSString *)text confirmBlock:(void (^)(NSString *))block {
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:nil
-                                                                message:text
-                                                         preferredStyle:UIAlertControllerStyleAlert];
-    [ac addAction:[UIAlertAction actionWithTitle:@"666"
-                                           style:UIAlertActionStyleDefault
-                                         handler:^(UIAlertAction * _Nonnull action) {
-                                             if (block) {
-                                                 block(action.title);
-                                             }
-    }]];
-    [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:ac animated:YES completion:nil];
+    void (^block)(NSString *string) = ^(NSString *string){
+        NSLog(@"%@", string);
+    };
+    [[Middleware shareMiddleware] performTarget:NSClassFromString(@"BPortal")
+                                         action:NSSelectorFromString(@"actionBWithParam1:param2:param3:param4:")
+                                         params:@"string1", MiddleWareArgNoValue, [NSObject new], block, nil];
 }
 
 @end

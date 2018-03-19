@@ -13,6 +13,4 @@
 
 @interface AVC : UIViewController
 
-- (void)actionAWithText:(NSString *)text confirmBlock:(void(^)(NSString *confirm))block;
-
 @end

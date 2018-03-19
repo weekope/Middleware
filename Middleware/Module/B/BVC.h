@@ -13,7 +13,6 @@
 
 @interface BVC : UIViewController
 
-- (void)actionB;
-- (NSString *)actionBWithReturn;
+- (void)actionBWithParam1:(NSString *)string1 param2:(NSString *)string2 param3:(id)object param4:(void (^)(NSString *string))block;
 
 @end

@@ -19,14 +19,9 @@
     [[Middleware shareMiddleware] registerTarget:[self class]];
 }
 
-- (void)actionB {
+- (void)actionBWithParam1:(NSString *)string1 param2:(NSString *)string2 param3:(id)object param4:(void (^)(NSString *string))block {
     BVC *b = [[BVC alloc] init];
-    [b actionB];
-}
-
-- (NSString *)actionBWithReturn {
-    BVC *b = [[BVC alloc] init];
-    return [b actionBWithReturn];
+    [b actionBWithParam1:string1 param2:string2 param3:object param4:block];
 }
 
 @end

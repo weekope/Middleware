@@ -25,9 +25,4 @@
     //已弃用：组件服务最好采取集约管理方式（portal统一管理），而不要分散到各个文件中
 }
 
-- (void)actionAWithText:(NSString *)text confirmBlock:(void (^)(NSString *confirm))block {
-    AVC *a = [[AVC alloc] init];
-    [a actionAWithText:text confirmBlock:block];
-}
-
 @end

@@ -11,6 +11,12 @@
 
 
 
+static NSString * const MiddleWareArgNoValue = @"MiddleWareArgNoValue"; //可变参数列表接受空值时，必须使用此常量替代
+
+
+
+
+
 @interface Middleware : NSObject
 
 /**
@@ -32,9 +38,9 @@
 
  @param target 组件入口
  @param sel    组件接口
- @param params 接口参数（参数校验，形式不友好）
+ @param first  参数列表第一个参数
  @return 组件接口返回值
  */
-- (id)performTarget:(Class)target action:(SEL)sel params:(NSArray *)params;
+- (id)performTarget:(Class)target action:(SEL)sel params:(id)first, ...NS_REQUIRES_NIL_TERMINATION;
 
 @end
