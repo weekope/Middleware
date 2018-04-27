@@ -6,7 +6,6 @@
 //
 
 #import "BPortal.h"
-#import "Middleware.h"
 #import "BVC.h"
 
 
@@ -14,10 +13,6 @@
 
 
 @implementation BPortal
-
-+ (void)load {
-    [[Middleware shareMiddleware] registerTarget:[self class]];
-}
 
 - (void)actionBWithParam1:(NSString *)string1 param2:(NSString *)string2 param3:(id)object param4:(void (^)(NSString *string))block {
     BVC *b = [[BVC alloc] init];

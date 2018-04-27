@@ -17,6 +17,14 @@ static NSString * const MiddleWareArgNoValue = @"MiddleWareArgNoValue"; //可变
 
 
 
+@protocol MiddlewareDelegate //实现该协议等价于注册，暂不需要做额外处理
+
+@end
+
+
+
+
+
 @interface Middleware : NSObject
 
 /**
@@ -25,13 +33,6 @@ static NSString * const MiddleWareArgNoValue = @"MiddleWareArgNoValue"; //可变
  @return 单例
  */
 + (instancetype)shareMiddleware;
-
-/**
- 注册模块入口，用来获取模块提供的接口
-
- @param target 模块入口
- */
-- (void)registerTarget:(Class)target;
 
 /**
  组件间接口调用

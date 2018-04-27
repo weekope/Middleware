@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A12B30D7204E3AB10020787F /* APortal.m in Sources */ = {isa = PBXBuildFile; fileRef = A12B30D6204E3AB10020787F /* APortal.m */; };
 		A1D1461620561946006460DD /* BPortal.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1461220561946006460DD /* BPortal.m */; };
 		A1D1461720561946006460DD /* BVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1461520561946006460DD /* BVC.m */; };
 		A1DF499D204D41C100050419 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF499C204D41C100050419 /* AppDelegate.m */; };
@@ -39,8 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A12B30D5204E3AB10020787F /* APortal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APortal.h; sourceTree = "<group>"; };
-		A12B30D6204E3AB10020787F /* APortal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APortal.m; sourceTree = "<group>"; };
 		A1D1461220561946006460DD /* BPortal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPortal.m; sourceTree = "<group>"; };
 		A1D1461320561946006460DD /* BPortal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPortal.h; sourceTree = "<group>"; };
 		A1D1461420561946006460DD /* BVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVC.h; sourceTree = "<group>"; };
@@ -184,20 +181,10 @@
 		A1DF49D2204D4C3000050419 /* A */ = {
 			isa = PBXGroup;
 			children = (
-				A1DF49DA204D512700050419 /* Portal */,
 				A1DF49D4204D4C5F00050419 /* AVC.h */,
 				A1DF49D5204D4C5F00050419 /* AVC.m */,
 			);
 			path = A;
-			sourceTree = "<group>";
-		};
-		A1DF49DA204D512700050419 /* Portal */ = {
-			isa = PBXGroup;
-			children = (
-				A12B30D5204E3AB10020787F /* APortal.h */,
-				A12B30D6204E3AB10020787F /* APortal.m */,
-			);
-			path = Portal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,7 +320,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1DF49D1204D45BD00050419 /* Middleware.m in Sources */,
-				A12B30D7204E3AB10020787F /* APortal.m in Sources */,
 				A1DF49AB204D41C100050419 /* main.m in Sources */,
 				A1DF49D6204D4C5F00050419 /* AVC.m in Sources */,
 				A1D1461620561946006460DD /* BPortal.m in Sources */,

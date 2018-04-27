@@ -65,8 +65,10 @@
 }
 
 - (id)performTarget:(Class)target action:(SEL)sel params:(id)first, ... {
-    //通过自身维护的注册信息，判定组件是否可被交互
-    if ([self.dicTarget.allKeys containsObject:NSStringFromClass(target)]) {
+    if ([target conformsToProtocol:@protocol(MiddlewareDelegate)]) {
+        //遵循协议的组件，自动注册
+        [self registerTarget:target];
+        
         NSObject *object = [[target alloc] init];
         NSMethodSignature *signature = [object methodSignatureForSelector:sel];
         if (!signature) {

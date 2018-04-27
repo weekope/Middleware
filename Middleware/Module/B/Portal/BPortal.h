@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Middleware.h"
 
 
 
 
 
-@interface BPortal : NSObject
-
+@interface BPortal : NSObject <MiddlewareDelegate> //遵循组件协议
 @end
